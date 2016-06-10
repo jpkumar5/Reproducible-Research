@@ -3,8 +3,13 @@ output:
   html_document: 
     fig_caption: yes
     keep_md: yes
+    force_cpations: TRUE
 ---
 # Reproducible Research - Peer Assessment 1
+
+```{r}
+library(ggplot2)
+```
 
 #Load the data (note that the data is already archived in the repository).
 
@@ -28,8 +33,7 @@ summary(completeDF)
 #A Histogram of the total number of steps taken each day,
 ```{r}
 stepsByDate <- aggregate(steps ~ date, data = completeDF, FUN=sum)
-p <- barplot(stepsByDate$steps, names.arg=stepsByDate$date, xlab = "Date", ylab = "Number of Steps")
-print(p)
+barplot(stepsByDate$steps, names.arg=stepsByDate$date, xlab = "Date", ylab = "Number of Steps")
 ```
 
 #Mean total number of steps taken per day,

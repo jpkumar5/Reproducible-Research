@@ -1,5 +1,14 @@
 # Reproducible Research - Peer Assessment 1
 
+
+```r
+library(ggplot2)
+```
+
+```
+## Warning: package 'ggplot2' was built under R version 3.2.5
+```
+
 #Load the data (note that the data is already archived in the repository).
 
 
@@ -35,71 +44,10 @@ summary(completeDF)
 
 ```r
 stepsByDate <- aggregate(steps ~ date, data = completeDF, FUN=sum)
-p <- barplot(stepsByDate$steps, names.arg=stepsByDate$date, xlab = "Date", ylab = "Number of Steps")
+barplot(stepsByDate$steps, names.arg=stepsByDate$date, xlab = "Date", ylab = "Number of Steps")
 ```
 
-![](test_files/figure-html/unnamed-chunk-3-1.png)<!-- -->
-
-```r
-print(p)
-```
-
-```
-##       [,1]
-##  [1,]  0.7
-##  [2,]  1.9
-##  [3,]  3.1
-##  [4,]  4.3
-##  [5,]  5.5
-##  [6,]  6.7
-##  [7,]  7.9
-##  [8,]  9.1
-##  [9,] 10.3
-## [10,] 11.5
-## [11,] 12.7
-## [12,] 13.9
-## [13,] 15.1
-## [14,] 16.3
-## [15,] 17.5
-## [16,] 18.7
-## [17,] 19.9
-## [18,] 21.1
-## [19,] 22.3
-## [20,] 23.5
-## [21,] 24.7
-## [22,] 25.9
-## [23,] 27.1
-## [24,] 28.3
-## [25,] 29.5
-## [26,] 30.7
-## [27,] 31.9
-## [28,] 33.1
-## [29,] 34.3
-## [30,] 35.5
-## [31,] 36.7
-## [32,] 37.9
-## [33,] 39.1
-## [34,] 40.3
-## [35,] 41.5
-## [36,] 42.7
-## [37,] 43.9
-## [38,] 45.1
-## [39,] 46.3
-## [40,] 47.5
-## [41,] 48.7
-## [42,] 49.9
-## [43,] 51.1
-## [44,] 52.3
-## [45,] 53.5
-## [46,] 54.7
-## [47,] 55.9
-## [48,] 57.1
-## [49,] 58.3
-## [50,] 59.5
-## [51,] 60.7
-## [52,] 61.9
-## [53,] 63.1
-```
+![](test_files/figure-html/unnamed-chunk-4-1.png)<!-- -->
 
 #Mean total number of steps taken per day,
 
@@ -132,7 +80,7 @@ stepsByInterval <- aggregate(steps ~ interval, data=completeDF, FUN=mean)
 plot(stepsByInterval, type="l")
 ```
 
-![](test_files/figure-html/unnamed-chunk-6-1.png)<!-- -->
+![](test_files/figure-html/unnamed-chunk-7-1.png)<!-- -->
 
 #Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 
@@ -180,7 +128,7 @@ stepsByDate <- aggregate(steps ~ date, data=filledDF, FUN=sum)
 barplot(stepsByDate$steps, names.arg=stepsByDate$date, xlab="Date", ylab="Number of Steps")
 ```
 
-![](test_files/figure-html/unnamed-chunk-10-1.png)<!-- -->
+![](test_files/figure-html/unnamed-chunk-11-1.png)<!-- -->
 
 #Mean for the missing data filled in.
 
@@ -254,4 +202,4 @@ xyplot(steps~interval|weekPart,
 )
 ```
 
-![](test_files/figure-html/unnamed-chunk-14-1.png)<!-- -->
+![](test_files/figure-html/unnamed-chunk-15-1.png)<!-- -->
